@@ -1,0 +1,21 @@
+ol li {
+  color: black;
+}
+
+li:hover {
+  background-color: none !important;
+}
+.ql-container {
+  height: 450px;
+}
+.makeStyles-content-9 {
+  width: 100%;
+  position: static;
+  overflow: hidden;
+}
+#blogTitle {
+  width: 270px !important;
+}
+.makeStyles-content-230 {
+  overflow: hidden;
+}
