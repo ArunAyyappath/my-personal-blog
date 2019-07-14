@@ -4,6 +4,7 @@ import "@firebase/firestore";
 import "firebase/firebase-database";
 import SummaryCardCompo from "./summaryCard";
 import ReadViewer from "./readerView";
+import img from "../images/blog1N.jpg";
 let changeHandlerData = [];
 let DataDerivedOut = [];
 
@@ -102,7 +103,7 @@ class SummaryCardCollection extends Component {
                 key={Date.now()}
                 titleHead={"Reader"}
                 dataInner={"<p>Loading</p>"}
-                imagePath={""}
+                imagePath={img}
               />
             )}
           </>
