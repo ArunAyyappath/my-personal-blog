@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SummaryCardCompo/> chek snapshot of the component 1`] = `
+<div
+  style={
+    Object {
+      "float": "left",
+      "margin": "50px 40px 10px 60px",
+      "width": "300px",
+    }
+  }
+>
+  <div
+    className="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-1 MuiPaper-rounded"
+  >
+    <button
+      className="MuiButtonBase-root MuiCardActionArea-root"
+      onBlur={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <img
+        alt="Reader"
+        className="MuiCardMedia-root MuiCardMedia-media"
+        height="140"
+        title="Light Up Your Thoughts"
+      />
+      <div
+        className="MuiCardContent-root"
+      >
+        <h2
+          className="MuiTypography-root makeStyles-font-3 MuiTypography-h5 MuiTypography-gutterBottom"
+        >
+          Reader
+        </h2>
+        <div
+          className="MuiTypography-root makeStyles-align-2 MuiTypography-body2 MuiTypography-colorTextSecondary"
+        >
+          Loading
+        </div>
+      </div>
+      <span
+        className="MuiCardActionArea-focusHighlight"
+      />
+    </button>
+    <div
+      className="MuiCardActions-root MuiCardActions-spacing"
+    >
+      <button
+        className="btn btn-primary btn-sm"
+      >
+        Read
+      </button>
+    </div>
+  </div>
+</div>
+`;
