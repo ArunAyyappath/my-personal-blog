@@ -38,7 +38,7 @@ const setTheStyles = makeStyles(theme => ({
   }
 }));
 
-function SignUp() {
+function SignUp(props) {
   const classes = setTheStyles();
 
   return (
@@ -59,10 +59,12 @@ function SignUp() {
                 variant="outlined"
                 required={true}
                 fullWidth
-                id="email"
+                id="userIdSignUp"
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange={props.onChangeof}
+                value={props.userValChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -73,8 +75,10 @@ function SignUp() {
                 name="password"
                 label="Password"
                 type="password"
-                id="password"
+                id="passwordIdSignUp"
                 autoComplete="current-password"
+                onChange={props.onChangeof}
+                value={props.passwordValChange}
               />
             </Grid>
           </Grid>
@@ -92,7 +96,9 @@ class CustomSignUp extends React.Component {
       statusInSignUp: false,
       natureOfErrInSignUp: "",
       messageInSignUp: "",
-      emailVerificationStatus: false
+      emailVerificationStatus: false,
+      userIdSignUp: "",
+      passwordIdSignUp: ""
     };
   }
 
@@ -100,9 +106,17 @@ class CustomSignUp extends React.Component {
     firebase.auth().signOut();
   }
 
+  handleValueChange = event => {
+    if (event.target.id === "userIdSignUp") {
+      this.setState({ userIdSignUp: event.target.value });
+    } else if (event.target.id === "passwordIdSignUp") {
+      this.setState({ passwordIdSignUp: event.target.value });
+    }
+  };
+
   onclickHandle = () => {
-    emailVal = document.getElementById("email").value;
-    const passWordVal = document.getElementById("password").value;
+    emailVal = this.state.userIdSignUp;
+    const passWordVal = this.state.passwordIdSignUp;
 
     if (emailVal !== "" && passWordVal !== "") {
       const auth = firebase.auth();
@@ -191,7 +205,11 @@ class CustomSignUp extends React.Component {
           </UserProvider>
         ) : (
           <>
-            <SignUp />
+            <SignUp
+              userValChange={this.state.userIdSignUp}
+              passwordValChange={this.state.passwordIdSignUp}
+              onChangeof={this.handleValueChange}
+            />
 
             <div style={{ textAlign: "center" }}>
               <button
