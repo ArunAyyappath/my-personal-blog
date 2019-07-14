@@ -118,7 +118,7 @@ class CustomSignUp extends React.Component {
   handleValue = event => {
     if (event.target.id === "userId") {
       this.setState({ userId: event.target.value });
-    } else if (event.target.id == "passwordId") {
+    } else if (event.target.id === "passwordId") {
       this.setState({ passwordId: event.target.value });
     }
   };
