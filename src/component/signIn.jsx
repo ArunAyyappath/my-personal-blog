@@ -45,7 +45,7 @@ const setTheStyles = makeStyles(theme => ({
   }
 }));
 
-function SignIn() {
+function SignIn(props) {
   const classes = setTheStyles();
 
   return (
@@ -66,10 +66,12 @@ function SignIn() {
                 variant="outlined"
                 required={true}
                 fullWidth
-                id="emailVal"
+                id="userId"
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange={props.onValueChange}
+                value={props.userVal}
               />
             </Grid>
             <Grid item xs={12}>
@@ -80,8 +82,10 @@ function SignIn() {
                 name="password"
                 label="Password"
                 type="password"
-                id="passwordVal"
+                id="passwordId"
                 autoComplete="current-password"
+                onChange={props.onValueChange}
+                value={props.passwordVal}
               />
             </Grid>
           </Grid>
@@ -101,7 +105,9 @@ class CustomSignUp extends React.Component {
       statusVal: "",
       messageInSignin: "",
       emailVerificationStatus: false,
-      passErr: false
+      passErr: false,
+      userId: "",
+      passwordId: ""
     };
   }
 
@@ -109,9 +115,17 @@ class CustomSignUp extends React.Component {
     firebase.auth().signOut();
   }
 
+  handleValue = event => {
+    if (event.target.id === "userId") {
+      this.setState({ userId: event.target.value });
+    } else if (event.target.id == "passwordId") {
+      this.setState({ passwordId: event.target.value });
+    }
+  };
+
   onclickHandleChange = () => {
-    emailValE = document.getElementById("emailVal").value;
-    const passWordValE = document.getElementById("passwordVal").value;
+    emailValE = this.state.userId;
+    const passWordValE = this.state.passwordId;
     userSetdataForVerificationSignIn.email = emailValE;
 
     if (emailValE !== "" && passWordValE !== "") {
@@ -121,6 +135,7 @@ class CustomSignUp extends React.Component {
         passWordValE
       );
       checkRelevanceAuth.catch(e => this.hitErrHandler(e));
+
       this.authListnerChange();
     } else {
       this.setState({
@@ -173,7 +188,7 @@ class CustomSignUp extends React.Component {
   hitForgotPass = () => {
     let thisSet = this;
     let auth = firebase.auth();
-    let emailAddress = document.getElementById("emailVal").value;
+    let emailAddress = document.getElementById("userId").value;
     auth
       .sendPasswordResetEmail(emailAddress)
       .then(function() {
@@ -230,7 +245,11 @@ class CustomSignUp extends React.Component {
           </UserProvider>
         ) : (
           <>
-            <SignIn />
+            <SignIn
+              onValueChange={this.handleValue}
+              userVal={this.state.userId}
+              passwordVal={this.state.passwordId}
+            />
             <>
               <div style={{ textAlign: "center" }}>
                 <button

@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import DefaultPage from "./component/defaultPage";
+import DefaultPage from "../component/defaultPage";
 
 it("renders without crashing", () => {
   const div = document.createElement("div");
