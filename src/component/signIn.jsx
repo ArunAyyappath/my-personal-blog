@@ -116,11 +116,7 @@ class CustomSignUp extends React.Component {
   }
 
   handleValue = event => {
-    if (event.target.id === "userId") {
-      this.setState({ userId: event.target.value });
-    } else if (event.target.id === "passwordId") {
-      this.setState({ passwordId: event.target.value });
-    }
+    this.setState({ [event.target.id]: event.target.value });
   };
 
   onclickHandleChange = () => {
@@ -186,30 +182,39 @@ class CustomSignUp extends React.Component {
   };
 
   hitForgotPass = () => {
-    let thisSet = this;
-    let auth = firebase.auth();
     let emailAddress = document.getElementById("userId").value;
-    auth
-      .sendPasswordResetEmail(emailAddress)
-      .then(function() {
-        thisSet.setState({
-          statusSignin: true,
-          natureOfErr: "success",
-          messageInSignin: "successfully send password reset mail"
-        });
-        // Email sent.
-      })
-      .catch(function(error) {
-        thisSet.setState({
-          statusSignin: true,
-          natureOfErr: "error",
-          messageInSignin: error
+    let thisSet = this;
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailAddress)) {
+      let auth = firebase.auth();
+      auth
+        .sendPasswordResetEmail(emailAddress)
+        .then(function() {
+          thisSet.setState({
+            statusSignin: true,
+            natureOfErr: "success",
+            messageInSignin: "successfully send password reset mail"
+          });
+          // Email sent.
+        })
+        .catch(function(error) {
+          thisSet.setState({
+            statusSignin: true,
+            natureOfErr: "error",
+            messageInSignin: error.message
+          });
+
+          // An error happened.
         });
 
-        // An error happened.
+      thisSet.timer = setTimeout(this.fncChangeStatus, 5000);
+    } else {
+      thisSet.setState({
+        statusSignin: true,
+        natureOfErr: "error",
+        messageInSignin: "please enter a valid email id"
       });
-
-    thisSet.timer = setTimeout(this.fncChangeStatus, 5000);
+      thisSet.timer = setTimeout(this.fncChangeStatus, 5000);
+    }
   };
 
   sendEmailVerification = () => {
