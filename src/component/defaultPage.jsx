@@ -6,8 +6,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import Med from "../images/med.png";
-import Pos from "../images/post.png";
+import inst from "../images/instagram.jpg";
+import git from "../images/github.jpg";
+import twt from "../images/twitter.jpg";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -44,23 +45,34 @@ function NavBarComponent(props) {
                 />
               </Typography>
               <span variant="h6" color="inherit" className={classes.align}>
-                <a
-                  href="/signIn"
-                  key="signIn"
-                  className={"sign"}
-                  style={{ cursor: "pointer" }}
-                >
-                  sign in
-                </a>
+                <button className={"signContainer"}>
+                  <a href="/signIn" className={"signInner"}>
+                    sign in
+                  </a>
+                </button>
               </span>
             </>
           ) : (
             <>
-              <div>
+              <div className={"reader"}>
                 <span className={"footer"}>
                   {" "}
                   © 2019 | Reader <span className={"spanR"}>D</span>igest
                 </span>
+              </div>
+
+              <div className={"outer"}>
+                <a href="https://github.com/ArunAyyappath">
+                  <img src={git} className={"imgSet"} />
+                </a>
+                |
+                <a href="https://www.instagram.com/arun_94">
+                  <img src={inst} className={"imgSet"} />
+                </a>
+                |
+                <a href="https://twitter.com/arunayyappath">
+                  <img src={twt} className={"imgSet"} />
+                </a>
               </div>
             </>
           )}
@@ -106,41 +118,6 @@ class DefaultPage extends Component {
             </div>
           </section>
         </div>
-
-        <div
-          style={{
-            width: "100%",
-            backgroundColor: "#f2f2f2",
-            height: "750px",
-            marginBottom: "13px"
-          }}
-        >
-          <div className={"divaligner"}>
-            <div style={{ textAlign: "center", paddingTop: "70px" }}>
-              <h2 className={"lableSecH"}>
-                Read<span> • </span>Write<span> • </span>Experience
-              </h2>
-              <img
-                src={Med}
-                alt={"screen"}
-                style={{ width: "406px", height: "400px" }}
-              />
-            </div>
-          </div>
-          <div className={"divaligner"}>
-            <div style={{ textAlign: "center", paddingTop: "70px" }}>
-              <h2 className={"lableSecH"}>
-                Make content <span className={"spanR"}>shareable</span>
-              </h2>
-              <img
-                src={Pos}
-                alt={"screen"}
-                style={{ width: "502px", height: "400px" }}
-              />
-            </div>
-          </div>
-        </div>
-
         <div
           style={{
             width: "100%",
