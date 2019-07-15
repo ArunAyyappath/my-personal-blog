@@ -95,15 +95,17 @@ class SummaryCardCollection extends Component {
                     dataInner={cardData.PublishedData}
                     imagePath={cardData.PublishedImgUrl}
                     onClickRead={this.onReadClick}
+                    readStatus={true}
                   />
                 ))}
               </>
             ) : (
               <SummaryCardCompo
                 key={Date.now()}
-                titleHead={"Reader"}
-                dataInner={"<p>Loading</p>"}
+                titleHead={""}
+                dataInner={"<p>Your library is empty</p>"}
                 imagePath={img}
+                readStatus={false}
               />
             )}
           </>

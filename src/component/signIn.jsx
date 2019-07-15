@@ -184,7 +184,7 @@ class CustomSignUp extends React.Component {
   hitForgotPass = () => {
     let emailAddress = document.getElementById("userId").value;
     let thisSet = this;
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailAddress)) {
+    if (/^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/.test(emailAddress)) {
       let auth = firebase.auth();
       auth
         .sendPasswordResetEmail(emailAddress)

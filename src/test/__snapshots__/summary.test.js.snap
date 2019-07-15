@@ -56,13 +56,7 @@ exports[`<SummaryCardCompo/> Compare snapshot of the component 1`] = `
     </button>
     <div
       className="MuiCardActions-root MuiCardActions-spacing"
-    >
-      <button
-        className="btn btn-primary btn-sm"
-      >
-        Read
-      </button>
-    </div>
+    />
   </div>
 </div>
 `;

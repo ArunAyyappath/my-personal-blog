@@ -6,7 +6,7 @@ import SignIn from "./signIn";
 
 class HomePage extends Component {
   componentDidMount() {
-    document.title = "Blogger";
+    document.title = "Arun Ayyappath Blog";
   }
   render() {
     return (

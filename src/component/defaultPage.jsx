@@ -63,15 +63,15 @@ function NavBarComponent(props) {
 
               <div className={"outer"}>
                 <a href="https://github.com/ArunAyyappath">
-                  <img src={git} className={"imgSet"} />
+                  <img src={git} className={"imgSet"} alt={"github"} />
                 </a>
                 |
                 <a href="https://www.instagram.com/arun_94">
-                  <img src={inst} className={"imgSet"} />
+                  <img src={inst} className={"imgSet"} alt={"instagram"} />
                 </a>
                 |
                 <a href="https://twitter.com/arunayyappath">
-                  <img src={twt} className={"imgSet"} />
+                  <img src={twt} className={"imgSet"} alt={"twitter"} />
                 </a>
               </div>
             </>
