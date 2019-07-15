@@ -27,9 +27,10 @@ let DataDerived = [];
 
 const useStyles = makeStyles(theme => ({
   card: {
-    minWidth: 345,
-    maxWidth: 383,
-    maxHeight: 444
+    maxWidth: "363px",
+    minWidth: "363px",
+    maxHeight: "420px",
+    minHeight: "420px"
   },
   media: {
     height: 0,
@@ -185,8 +186,8 @@ function RecipeReviewCard(props) {
                       clickable
                       color="primary"
                       style={{
-                        right: "4px",
-                        bottom: "322px",
+                        left: "23px",
+                        bottom: "309px",
                         position: "relative"
                       }}
                     />
@@ -231,7 +232,6 @@ class ContentDecider extends Component {
               // console.log(childSnapshot.val());
               var item = childSnapshot.val();
               item.key = (Math.random() * 1e32).toString(36);
-
               changeHandler.push(item);
             });
 
@@ -323,7 +323,7 @@ class ContentDecider extends Component {
           : null}
 
         {this.state.loader ? (
-          <div style={{ position: "absolute", right: "1012px", top: "400px" }}>
+          <div style={{ position: "absolute", right: "1012px", top: "475px" }}>
             <Preloader />
           </div>
         ) : null}

@@ -95,22 +95,19 @@ function NavBarSignout(props) {
   }
 
   function handlePageOrder(targetname) {
+    setHome(false);
+    setaddBlog(false);
+    setaddUpdate(false);
     switch (targetname) {
       case "Home": {
-        setaddBlog(false);
-        setaddUpdate(false);
         setHome(true);
         break;
       }
       case "Explore": {
-        setHome(false);
-        setaddUpdate(false);
         setaddBlog(true);
         break;
       }
       case "Summary": {
-        setHome(false);
-        setaddBlog(false);
         setaddUpdate(true);
 
         break;

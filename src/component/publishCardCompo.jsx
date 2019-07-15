@@ -31,7 +31,7 @@ class SummaryCardCollection extends Component {
             snapshot.forEach(function(childSnapshot) {
               // console.log(childSnapshot.val());
               var item = childSnapshot.val();
-              console.log(item);
+              //console.log(item);
               item.key = (Math.random() * 1e32).toString(36);
 
               changeHandlerData.push(item);
@@ -55,7 +55,7 @@ class SummaryCardCollection extends Component {
   onReadClick = event => {
     DataDerivedOut = [];
 
-    console.log(event.currentTarget);
+    //console.log(event.currentTarget);
 
     let pathCrossChecker = event.currentTarget.attributes[1].value;
 
