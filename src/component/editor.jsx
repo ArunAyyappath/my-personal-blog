@@ -70,7 +70,7 @@ class Editor extends React.Component {
         return dataFilter.dataTarget === pathCloner;
       }
       let DataDerived = propDataHandler.filter(filterData);
-      console.log(DataDerived);
+      //console.log(DataDerived);
       this.setState({
         editorHtml: DataDerived[0].Data,
         valueOftitle: DataDerived[0].TitleVal,

@@ -1,3 +1,8 @@
 .MuiFab-secondary {
   margin-left: 8px !important;
 }
+.MuiCardHeader-title {
+  height: 40px;
+  overflow-x: scroll;
+  word-break: break-word;
+}

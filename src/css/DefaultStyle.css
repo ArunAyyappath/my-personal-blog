@@ -121,3 +121,32 @@ a {
   font-family: Sorts Mill Goudy;
   letter-spacing: 0.02em;
 }
+.signInner {
+  color: #000;
+  text-transform: capitalize;
+  font-size: 19px;
+  font-family: times new roman;
+  font-weight: 500;
+  cursor: pointer !important;
+}
+
+.signInner:hover {
+  text-decoration: underline !important;
+  color: #e2162f !important;
+}
+
+.signContainer {
+  border: none;
+}
+.imgSet {
+  height: 22px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.outer {
+  width: 100% !important;
+  text-align: right !important;
+}
+.reader {
+  width: 100% !important;
+}
