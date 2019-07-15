@@ -66,13 +66,15 @@ function SimpleCard(props) {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <button
-            className={"btn btn-primary btn-sm"}
-            aria-label={props.publishTar}
-            onClick={props.clickHandler}
-          >
-            Read
-          </button>
+          {props.readHandler ? (
+            <button
+              className={"btn btn-primary btn-sm"}
+              aria-label={props.publishTar}
+              onClick={props.clickHandler}
+            >
+              Read
+            </button>
+          ) : null}
         </CardActions>
       </Card>
     </div>
@@ -89,6 +91,7 @@ class SummaryCardCompo extends Component {
           imgUrlSpec={this.props.imagePath}
           publishTar={this.props.publishedId}
           clickHandler={this.props.onClickRead}
+          readHandler={this.props.readStatus}
         />
       </>
     );

@@ -16,7 +16,13 @@ class ReadViewer extends Component {
       <>
         <div id="mainParent">
           <div style={{ textAlign: "left" }}>
-            <h4 onClick={this.props.onBackClick}>Home</h4>
+            <button
+              className={"btn btn-sm m-2"}
+              style={{ backgroundColor: "#007bff", color: "#fff" }}
+              onClick={this.props.onBackClick}
+            >
+              Back
+            </button>
           </div>
           <div
             style={{
