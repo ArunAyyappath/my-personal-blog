@@ -103,11 +103,11 @@ function NavBarSignout(props) {
         setHome(true);
         break;
       }
-      case "Explore": {
+      case "Create post": {
         setaddBlog(true);
         break;
       }
-      case "Summary": {
+      case "Published": {
         setaddUpdate(true);
 
         break;
@@ -182,7 +182,7 @@ function NavBarSignout(props) {
         <div className={classes.toolbar} />
         <Divider />
         <List>
-          {["Home", "Explore"].map((text, index) => (
+          {["Home", "Create post"].map((text, index) => (
             <ListItem button key={text} onClick={() => handlePageOrder(text)}>
               <ListItemIcon>
                 {index % 2 === 0 ? (
@@ -197,7 +197,7 @@ function NavBarSignout(props) {
         </List>
         <Divider />
         <List>
-          {["Summary"].map((text, index) => (
+          {["Published"].map((text, index) => (
             <ListItem button key={text} onClick={() => handlePageOrder(text)}>
               <ListItemIcon>
                 {index % 2 === 0 ? (

@@ -13,7 +13,10 @@ import firebase from "./fireStore";
 import "firebase/app";
 import "firebase/auth";
 import ErrCompo from "./messageCompo";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import { UserProvider } from "../context/userVerification";
+import { onChangeUserLogin } from "../actions/login-action";
 const userSetdataForVerificationSignIn = {};
 
 let emailValE;
@@ -96,7 +99,7 @@ function SignIn(props) {
   );
 }
 
-class CustomSignUp extends React.Component {
+export class CustomSignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -122,6 +125,11 @@ class CustomSignUp extends React.Component {
   onclickHandleChange = () => {
     emailValE = this.state.userId;
     const passWordValE = this.state.passwordId;
+    let userDetails = {
+      gmailId: emailValE,
+      password: passWordValE
+    };
+    this.props.onUserClick(userDetails);
     userSetdataForVerificationSignIn.email = emailValE;
 
     if (emailValE !== "" && passWordValE !== "") {
@@ -162,7 +170,6 @@ class CustomSignUp extends React.Component {
 
   authListnerChange = () => {
     firebase.auth().onAuthStateChanged(user => {
-      // console.log(user);
       if (user !== null) {
         if (user.emailVerified) {
           this.setState({ statusOfI: true });
@@ -300,4 +307,20 @@ class CustomSignUp extends React.Component {
   }
 }
 
-export default CustomSignUp;
+const mapStateToProps = state => {
+  return state;
+};
+
+const mapActionsToProps = dispatch => {
+  return bindActionCreators(
+    {
+      onUserClick: onChangeUserLogin
+    },
+    dispatch
+  );
+};
+
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(CustomSignUp);
