@@ -3,10 +3,23 @@ import ReactDOM from "react-dom";
 import HomePage from "./component/homePage";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.css";
-
+import { combineReducers, createStore } from "redux";
+import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
+import loginReducer from "./reducers/login-reducer";
 
-ReactDOM.render(<HomePage />, document.getElementById("root"));
+const rootReducers = combineReducers({
+  login: loginReducer
+});
+
+const store = createStore(rootReducers, window.__REDUX_DEVTOOLS_EXTENSION__());
+
+ReactDOM.render(
+  <Provider store={store}>
+    <HomePage />
+  </Provider>,
+  document.getElementById("root")
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

@@ -1,5 +1,5 @@
 import React from "react";
-import CustomSignUp from "../component/signIn";
+import { CustomSignUp } from "../component/signIn";
 import { configure, shallow, cleanup, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import renderer from "react-test-renderer";
@@ -17,7 +17,9 @@ describe("<CustomSignUp/>", () => {
   });
 
   it("check-signin-function-call-times", () => {
-    const wrapper = shallow(<CustomSignUp />);
+    const reduxspy = jest.fn();
+    const wrapper = shallow(<CustomSignUp onUserClick={reduxspy} />);
+
     const spy = jest.spyOn(wrapper.instance(), "onclickHandleChange");
     const spyFnc = jest.spyOn(wrapper.instance(), "authListnerChange");
     wrapper.setState({

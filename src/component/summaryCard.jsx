@@ -57,6 +57,7 @@ function SimpleCard(props) {
               color="textSecondary"
               component="div"
               className={classes.align}
+              // dangerouslySetInnerHTML={{ __html: props.dataContainer }}
             >
               {props.dataContainer
                 .replace(/<\s*br[^>]?>/, "\n")
