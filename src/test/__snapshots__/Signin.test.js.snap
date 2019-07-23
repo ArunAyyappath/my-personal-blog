@@ -183,6 +183,11 @@ Array [
     </div>
     <p
       className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+      style={
+        Object {
+          "paddingTop": "25px",
+        }
+      }
     >
       Confessions of a Writing Freak
     </p>

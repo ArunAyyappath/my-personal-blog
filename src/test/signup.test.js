@@ -32,7 +32,7 @@ describe("<CustomSignUp/>", () => {
   it("verify-signin-userId", () => {
     const wrapper = mount(<CustomSignUp />);
     const container = wrapper.find("input[type='text']");
-    container.find("input[type='text']").simulate("change", {
+    container.find("#userIdSignUp").simulate("change", {
       target: { id: "userIdSignUp", value: "Fakeuser@gmail.com" }
     });
     expect(wrapper.instance().state.userIdSignUp).toBe("Fakeuser@gmail.com");
@@ -40,8 +40,8 @@ describe("<CustomSignUp/>", () => {
 
   it("verify-signin-passwordId", () => {
     const wrapper = mount(<CustomSignUp />);
-    const container = wrapper.find("input[type='text']");
-    container.find("input[type='text']").simulate("change", {
+    const container = wrapper.find("input[type='password']");
+    container.find("#passwordIdSignUp").simulate("change", {
       target: { id: "passwordIdSignUp", value: "12345678" }
     });
     expect(wrapper.instance().state.passwordIdSignUp).toBe("12345678");

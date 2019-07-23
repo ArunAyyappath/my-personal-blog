@@ -181,6 +181,16 @@ Array [
         </div>
       </form>
     </div>
+    <p
+      className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+      style={
+        Object {
+          "paddingTop": "25px",
+        }
+      }
+    >
+      Confessions of a Writing Freak
+    </p>
   </main>,
   <div
     style={
@@ -212,7 +222,7 @@ Array [
     <a
       href="/signIn"
     >
-      Already have an account ? signin
+      Already have an account ? Sign In
     </a>
   </div>,
   <div />,

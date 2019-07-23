@@ -39,6 +39,9 @@ exports[`<SummaryCardCompo/> Compare snapshot of the component 1`] = `
       <div
         className="MuiCardContent-root"
       >
+        <h6
+          className="MuiTypography-root makeStyles-font-3 MuiTypography-h6 MuiTypography-gutterBottom"
+        />
         <h2
           className="MuiTypography-root makeStyles-font-3 MuiTypography-h5 MuiTypography-gutterBottom"
         >
