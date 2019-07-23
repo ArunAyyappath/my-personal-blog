@@ -74,7 +74,8 @@ class SummaryCardCollection extends Component {
         dataTarget: DataDerivedOut[0].PublisheddataTarget,
         published: DataDerivedOut[0].Publishedpublished,
         dataSavedTarget: DataDerivedOut[0].dataSavedTarget,
-        key: DataDerivedOut[0].key
+        key: DataDerivedOut[0].key,
+        authorData: DataDerivedOut[0].authorData
       }
     ];
 
@@ -95,6 +96,7 @@ class SummaryCardCollection extends Component {
                     dataInner={cardData.PublishedData}
                     imagePath={cardData.PublishedImgUrl}
                     onClickRead={this.onReadClick}
+                    authorChange={cardData.PublishedAuthor}
                     readStatus={true}
                   />
                 ))}

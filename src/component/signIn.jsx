@@ -23,7 +23,12 @@ let emailValE;
 
 function Footer() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography
+      variant="body2"
+      color="textSecondary"
+      align="center"
+      style={{ paddingTop: "25px" }}
+    >
       {"Confessions of a Writing Freak"}
     </Typography>
   );

@@ -39,7 +39,8 @@ class SaveChangeButton extends Component {
           monthChanger +
           "/" +
           Timeperiod.getFullYear(),
-        dataTarget: this.props.pathGainer
+        dataTarget: this.props.pathGainer,
+        authorData: this.props.userNamed
       })
       .then(this.handleErorUpdate());
   };
@@ -162,7 +163,8 @@ class SaveChangeButton extends Component {
             dataTarget: GenerateRandom,
             published: false,
             PublisheddataTarget: "",
-            disableStatus: true
+            disableStatus: true,
+            authorData: this.props.userNamed
           },
 
           function(error) {

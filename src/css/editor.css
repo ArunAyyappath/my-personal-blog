@@ -13,7 +13,10 @@ li:hover {
   position: static;
   overflow: hidden;
 }
-#blogTitle {
+#valueOftitle {
+  width: 270px !important;
+}
+#AuthorName {
   width: 270px !important;
 }
 .makeStyles-content-230 {

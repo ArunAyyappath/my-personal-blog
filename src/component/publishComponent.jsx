@@ -64,7 +64,8 @@ function LongMenu(props) {
         PublisheddataCreatedOn: dataDerived.dataCreatedOn,
         dataSavedTarget: dataDerived.dataTarget,
         PublisheddataTarget: pathSelection,
-        Publishedpublished: true
+        Publishedpublished: true,
+        PublishedAuthor: dataDerived.authorData
       });
 
     return hitFirebase(dataDerived, pathSelection);

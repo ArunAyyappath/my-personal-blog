@@ -27,7 +27,7 @@ const setTheStyles = makeStyles(theme => ({
   },
   ProfileP: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main
+    backgroundColor: "#4c6aff"
   },
   formStyle: {
     width: "100%",
@@ -65,6 +65,7 @@ function SignUp(props) {
                 autoComplete="email"
                 onChange={props.onChangeof}
                 value={props.userValChange}
+                disabled={props.flag}
               />
             </Grid>
             <Grid item xs={12}>
@@ -79,11 +80,20 @@ function SignUp(props) {
                 autoComplete="current-password"
                 onChange={props.onChangeof}
                 value={props.passwordValChange}
+                disabled={props.flag}
               />
             </Grid>
           </Grid>
         </form>
       </div>
+      <Typography
+        variant="body2"
+        color="textSecondary"
+        align="center"
+        style={{ paddingTop: "25px" }}
+      >
+        {"Confessions of a Writing Freak"}
+      </Typography>
     </Container>
   );
 }
@@ -98,7 +108,8 @@ class CustomSignUp extends React.Component {
       messageInSignUp: "",
       emailVerificationStatus: false,
       userIdSignUp: "",
-      passwordIdSignUp: ""
+      passwordIdSignUp: "",
+      inputStatus: false
     };
   }
 
@@ -107,11 +118,7 @@ class CustomSignUp extends React.Component {
   }
 
   handleValueChange = event => {
-    if (event.target.id === "userIdSignUp") {
-      this.setState({ userIdSignUp: event.target.value });
-    } else if (event.target.id === "passwordIdSignUp") {
-      this.setState({ passwordIdSignUp: event.target.value });
-    }
+    this.setState({ [event.target.id]: event.target.value });
   };
 
   onclickHandle = () => {
@@ -141,7 +148,7 @@ class CustomSignUp extends React.Component {
     this.setState({
       statusInSignUp: false
     });
-    clearInterval(this.timerSign);
+    clearTimeout(this.timerSign);
   };
 
   hitErroPlacer = e => {
@@ -209,6 +216,7 @@ class CustomSignUp extends React.Component {
               userValChange={this.state.userIdSignUp}
               passwordValChange={this.state.passwordIdSignUp}
               onChangeof={this.handleValueChange}
+              flag={this.state.inputStatus}
             />
 
             <div style={{ textAlign: "center" }}>
@@ -224,7 +232,7 @@ class CustomSignUp extends React.Component {
               <a href="/">Home</a>
             </div>
             <div className="accOn">
-              <a href="/signIn">Already have an account ? signin</a>
+              <a href="/signIn">Already have an account ? Sign In</a>
             </div>
 
             <ErrCompo

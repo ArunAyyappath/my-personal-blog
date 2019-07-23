@@ -8,6 +8,7 @@ import "@firebase/firestore";
 import "firebase/firebase-database";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
+import { connect } from "react-redux";
 
 var ImgUrlSave = "";
 
@@ -32,8 +33,8 @@ function TextFields(props) {
   return (
     <form className={classes.container} noValidate autoComplete="off">
       <TextField
-        id="blogTitle"
-        label="Title"
+        id={props.identity}
+        label={props.label}
         margin="dense"
         onChange={props.onChangeEvent}
         value={props.valueTarget}
@@ -42,7 +43,7 @@ function TextFields(props) {
   );
 }
 
-class Editor extends React.Component {
+export class Editor extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -50,7 +51,8 @@ class Editor extends React.Component {
       contentEdited: false,
       valueOftitle: "",
       ImgUrl: "",
-      cancelStatus: false
+      cancelStatus: false,
+      AuthorName: this.props.valueFromRedux.login[0].gmailId.split("@")[0]
     };
     this.ImgRef = React.createRef();
   }
@@ -74,6 +76,7 @@ class Editor extends React.Component {
       this.setState({
         editorHtml: DataDerived[0].Data,
         valueOftitle: DataDerived[0].TitleVal,
+        AuthorName: DataDerived[0].authorData,
         cancelStatus: true
       });
       ImgUrlSave = DataDerived[0].ImgUrl;
@@ -117,7 +120,7 @@ class Editor extends React.Component {
   };
 
   handleChangeOfBoth = event => {
-    this.setState({ valueOftitle: event.currentTarget.value });
+    this.setState({ [event.currentTarget.id]: event.currentTarget.value });
   };
 
   render() {
@@ -130,7 +133,17 @@ class Editor extends React.Component {
               <TextFields
                 onChangeEvent={this.handleChangeOfBoth}
                 valueTarget={this.state.valueOftitle}
+                identity={"valueOftitle"}
+                label={"Title"}
               />
+              <span>
+                <TextFields
+                  onChangeEvent={this.handleChangeOfBoth}
+                  identity={"AuthorName"}
+                  label={"Author Name"}
+                  valueTarget={this.state.AuthorName}
+                />
+              </span>
             </div>
             <div style={{ width: "50%", float: "left" }}>
               <span style={{ margin: "20px", fontWeight: "bold" }}>
@@ -155,8 +168,8 @@ class Editor extends React.Component {
                   id="imgsrc"
                   src={"" + ImgUrlSave + ""}
                   style={{
-                    width: "180px",
-                    height: "108px",
+                    width: "170px",
+                    height: "100px",
                     padding: "8px",
                     position: "absolute"
                   }}
@@ -195,6 +208,7 @@ class Editor extends React.Component {
               saveData={this.state.editorHtml}
               cancelTheSelected={this.props.cancelSelection}
               pathGainer={this.props.pathSelector}
+              userNamed={this.state.AuthorName}
             />
           ) : null
         ) : null}
@@ -202,7 +216,14 @@ class Editor extends React.Component {
     );
   }
 }
-export default Editor;
+
+const mapStateToProps = state => {
+  return {
+    valueFromRedux: state
+  };
+};
+
+export default connect(mapStateToProps)(Editor);
 
 Editor.modules = {
   toolbar: [

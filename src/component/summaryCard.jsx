@@ -46,6 +46,14 @@ function SimpleCard(props) {
           <CardContent>
             <Typography
               gutterBottom
+              variant="h6"
+              component="h6"
+              className={classes.font}
+            >
+              {props.authorNamed}
+            </Typography>
+            <Typography
+              gutterBottom
               variant="h5"
               component="h2"
               className={classes.font}
@@ -93,6 +101,7 @@ class SummaryCardCompo extends Component {
           publishTar={this.props.publishedId}
           clickHandler={this.props.onClickRead}
           readHandler={this.props.readStatus}
+          authorNamed={this.props.authorChange}
         />
       </>
     );

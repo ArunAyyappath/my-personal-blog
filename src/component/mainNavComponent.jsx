@@ -213,7 +213,6 @@ function NavBarSignout(props) {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <>{props.updatePageShuffler ? null : null}</>
 
         {home && props.updatePageShuffler ? (
           <>
