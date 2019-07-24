@@ -11,8 +11,8 @@ import loginReducer from "./reducers/login-reducer";
 const rootReducers = combineReducers({
   login: loginReducer
 });
-
-const store = createStore(rootReducers, window.__REDUX_DEVTOOLS_EXTENSION__());
+//window.__REDUX_DEVTOOLS_EXTENSION__()
+const store = createStore(rootReducers);
 
 ReactDOM.render(
   <Provider store={store}>
