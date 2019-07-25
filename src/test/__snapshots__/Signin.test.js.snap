@@ -192,39 +192,44 @@ Array [
       Confessions of a Writing Freak
     </p>
   </main>,
-  <div
-    style={
-      Object {
-        "textAlign": "center",
-      }
-    }
+  <main
+    className="MuiContainer-root MuiContainer-maxWidthXs"
   >
     <button
-      className="submitT m-4"
+      className="submitT"
       onClick={[Function]}
       type="submit"
     >
       SignIn
     </button>
-  </div>,
-  <div
-    className="homeSign"
+  </main>,
+  <main
+    className="MuiContainer-root MuiContainer-maxWidthXs"
   >
-    <a
-      href="/"
+    <p
+      className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-alignLeft"
+      style={
+        Object {
+          "float": "left",
+        }
+      }
     >
-      Home
-    </a>
-  </div>,
-  <div
-    className="accOnSignUp"
-  >
-    <a
-      href="/signUp"
+      <a
+        href="/"
+      >
+         Home 
+      </a>
+    </p>
+    <p
+      className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-alignRight"
     >
-      Don't have an account? Sign Up
-    </a>
-  </div>,
+      <a
+        href="/signUp"
+      >
+        Don't have an account? Sign Up
+      </a>
+    </p>
+  </main>,
   <div />,
 ]
 `;

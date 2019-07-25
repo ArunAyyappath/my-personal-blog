@@ -257,9 +257,11 @@ export class CustomSignUp extends React.Component {
     return (
       <>
         {this.state.statusOfI ? (
-          <UserProvider value={userSetdataForVerificationSignIn}>
-            <BlogerData statusOfVal={this.state.statusOfI} />
-          </UserProvider>
+          <Container component="main" maxWidth="xl">
+            <UserProvider value={userSetdataForVerificationSignIn}>
+              <BlogerData statusOfVal={this.state.statusOfI} />
+            </UserProvider>
+          </Container>
         ) : (
           <>
             <SignIn
@@ -268,36 +270,41 @@ export class CustomSignUp extends React.Component {
               passwordVal={this.state.passwordId}
             />
             <>
-              <div style={{ textAlign: "center" }}>
+              <Container component="main" maxWidth="xs">
                 <button
-                  className="submitT m-4"
+                  className="submitT"
                   type="submit"
                   onClick={this.onclickHandleChange}
                 >
                   SignIn
                 </button>
-              </div>
-              {this.state.passErr ? (
-                <div
-                  className="homeSign"
-                  style={{ width: "45%", textAlign: "right", float: "left" }}
-                >
-                  <p
+              </Container>
+              <Container component="main" maxWidth="xs">
+                {this.state.passErr ? (
+                  <Typography
+                    variant="body2"
+                    className={"resetPassword"}
+                    color="textSecondary"
+                    align="left"
                     onClick={this.hitForgotPass}
-                    style={{ color: "#2188ff", cursor: "pointer" }}
+                    style={{ float: "left", color: "#007bff" }}
                   >
                     Forgot password
-                  </p>
-                </div>
-              ) : (
-                <div className="homeSign">
-                  <a href="/">Home</a>
-                </div>
-              )}
-
-              <div className="accOnSignUp">
-                <a href="/signUp">Don't have an account? Sign Up</a>
-              </div>
+                  </Typography>
+                ) : (
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    align="left"
+                    style={{ float: "left" }}
+                  >
+                    <a href="/"> Home </a>
+                  </Typography>
+                )}
+                <Typography variant="body2" color="textSecondary" align="right">
+                  <a href="/signUp">Don't have an account? Sign Up</a>
+                </Typography>
+              </Container>
             </>
 
             <ErrCompo

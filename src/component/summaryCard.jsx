@@ -30,7 +30,7 @@ function SimpleCard(props) {
     <div
       style={{
         float: "left",
-        margin: "50px 40px 10px 60px",
+        margin: "50px 40px 10px 30px",
         width: "300px"
       }}
     >
