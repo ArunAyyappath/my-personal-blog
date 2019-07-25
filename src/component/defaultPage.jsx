@@ -9,12 +9,13 @@ import Typography from "@material-ui/core/Typography";
 import inst from "../images/instagram.jpg";
 import git from "../images/github.jpg";
 import twt from "../images/twitter.jpg";
+import Container from "@material-ui/core/Container";
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     minHeight: 40,
-    backgroundColor: "#fff",
+    backgroundColor: "#f2f2f2",
     color: "#000"
   },
   menuButton: {
@@ -36,44 +37,35 @@ function NavBarComponent(props) {
         <Toolbar variant="dense" className={classes.root}>
           {props.signIn ? (
             <>
-              <Typography variant="h6" color="inherit">
-                <img
-                  src={Logo}
-                  alt={"RD"}
-                  style={{ width: "59px", padding: "3px 10px 3px 0" }}
-                  title={"Reader Digest"}
-                />
-              </Typography>
-              <span variant="h6" color="inherit" className={classes.align}>
-                <button className={"signContainer"}>
-                  <a href="/signIn" className={"signInner"}>
-                    sign in
-                  </a>
-                </button>
-              </span>
+              <Container maxWidth="xl">
+                <Typography variant="h6" color="inherit" align="right">
+                  <button className={"signContainer"}>
+                    <a href="/signIn" className={"signInner"}>
+                      sign in
+                    </a>
+                  </button>
+                </Typography>
+              </Container>
             </>
           ) : (
             <>
-              <div className={"reader"}>
-                <span className={"footer"}>
-                  {" "}
-                  © 2019 | Reader <span className={"spanR"}>D</span>igest
-                </span>
-              </div>
-
-              <div className={"outer"}>
-                <a href="https://github.com/ArunAyyappath">
-                  <img src={git} className={"imgSet"} alt={"github"} />
-                </a>
-                |
-                <a href="https://www.instagram.com/arun_94">
-                  <img src={inst} className={"imgSet"} alt={"instagram"} />
-                </a>
-                |
-                <a href="https://twitter.com/arunayyappath">
-                  <img src={twt} className={"imgSet"} alt={"twitter"} />
-                </a>
-              </div>
+              <Container maxWidth="xl">
+                <Typography variant="h6" color="inherit" align="right">
+                  <div className={"outer"}>
+                    <a href="https://github.com/ArunAyyappath">
+                      <img src={git} className={"imgSet"} alt={"github"} />
+                    </a>
+                    |
+                    <a href="https://www.instagram.com/arun_ayyappath/">
+                      <img src={inst} className={"imgSet"} alt={"instagram"} />
+                    </a>
+                    |
+                    <a href="https://twitter.com/arunayyappath">
+                      <img src={twt} className={"imgSet"} alt={"twitter"} />
+                    </a>
+                  </div>
+                </Typography>
+              </Container>
             </>
           )}
         </Toolbar>
@@ -92,47 +84,23 @@ class DefaultPage extends Component {
   render() {
     return (
       <>
-        <NavBarComponent signIn={true} />
-        <div
-          style={{
-            width: "100%",
-            height: "750px",
-            margin: "13px 0",
-            backgroundColor: "#f2f2f2"
-          }}
-        >
-          <section>
-            <div className={"marginCls"}>
-              <h1 className={"h1Align"}>
-                START YOUR <span className={"spanR"}>C</span>REATIVE WRITING
-                TODAY
-              </h1>
-              <div style={{ textAlign: "center" }}>
-                <label className={"borderAlign"} />
-              </div>
-              <div style={{ textAlign: "center", paddingTop: "40px" }}>
-                <label className={"lableH"}>Enlarge your world</label>
-                <label className={"BorderS"} />
-                <label className={"lableH"}>Enhance your thoughts</label>
-              </div>
-            </div>
-          </section>
-        </div>
-        <div
-          style={{
-            width: "100%",
-            backgroundColor: "#000",
-            height: "950px",
-            overflow: "scroll"
-          }}
-        >
-          <div style={{ textAlign: "center", color: "#fff", padding: "80px" }}>
-            <h2 className={"lib"}>
-              <span className={"spanR"}>L</span>ibrary
-            </h2>
-          </div>
-          <SummaryCardCollection />
-        </div>
+        <Typography component="div" style={{ height: "96vh" }}>
+          <NavBarComponent signIn={true} />
+
+          <Container
+            component="main"
+            maxWidth="xl"
+            style={{
+              backgroundColor: "#fff",
+              overflow: "scroll",
+              height: "90vh",
+              marginBottom: "5px",
+              paddingBottom: "14px"
+            }}
+          >
+            <SummaryCardCollection />
+          </Container>
+        </Typography>
         <NavBarComponent />
       </>
     );

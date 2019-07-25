@@ -25,6 +25,7 @@ import firebase from "./fireStore";
 import "@firebase/firestore";
 import "firebase/firebase-database";
 import ErrCompo from "./messageCompo";
+import Container from "@material-ui/core/Container";
 
 function HomeIcon(props) {
   return (
@@ -120,145 +121,147 @@ function NavBarSignout(props) {
   }
 
   return (
-    <div className={classes.root}>
-      <CssBaseline />
-      <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="Menu"
-          />
-          <Typography variant="h6" className={classes.title}>
-            <UserConsumer>
-              {props => {
-                return props.email;
-              }}
-            </UserConsumer>
-          </Typography>
-          <Typography variant="h6" className={classes.title} />
-
-          <div>
+    <Container component="main" maxWidth="xl">
+      <div className={classes.root}>
+        <CssBaseline />
+        <AppBar position="fixed" className={classes.appBar}>
+          <Toolbar>
             <IconButton
-              aria-label="Account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleMenu}
+              edge="start"
+              className={classes.menuButton}
               color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorEl}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right"
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right"
-              }}
-              open={open}
-              onClose={handleClose}
-            >
-              <MenuItem onClick={handleClose}>
-                <span onClick={props.onClikLogoutIn}>Logout</span>
-              </MenuItem>
-            </Menu>
-          </div>
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        className={classes.drawer}
-        variant="permanent"
-        classes={{
-          paper: classes.drawerPaper
-        }}
-        anchor="left"
-      >
-        <div className={classes.toolbar} />
-        <Divider />
-        <List>
-          {["Home", "Create post"].map((text, index) => (
-            <ListItem button key={text} onClick={() => handlePageOrder(text)}>
-              <ListItemIcon>
-                {index % 2 === 0 ? (
-                  <HomeIcon className={classes.icon} color="primary" />
-                ) : (
-                  <MailIcon className={classes.icon} color="primary" />
-                )}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {["Published"].map((text, index) => (
-            <ListItem button key={text} onClick={() => handlePageOrder(text)}>
-              <ListItemIcon>
-                {index % 2 === 0 ? (
-                  <InboxIcon className={classes.icon} color="primary" />
-                ) : (
-                  <MailIcon />
-                )}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-
-        {home && props.updatePageShuffler ? (
-          <>
-            <ContentDecider
-              changeTarget={props.changeContent}
-              doDeleteStepsHandler={props.onDoDeleteChange}
+              aria-label="Menu"
             />
-            {props.deleteState ? (
-              <ErrCompo
-                statusVal={true}
-                errorwarn={"success"}
-                message={"successfully deleted . ."}
+            <Typography variant="h6" className={classes.title}>
+              <UserConsumer>
+                {props => {
+                  return props.email;
+                }}
+              </UserConsumer>
+            </Typography>
+            <Typography variant="h6" className={classes.title} />
+
+            <div>
+              <IconButton
+                aria-label="Account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right"
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right"
+                }}
+                open={open}
+                onClose={handleClose}
+              >
+                <MenuItem onClick={handleClose}>
+                  <span onClick={props.onClikLogoutIn}>Logout</span>
+                </MenuItem>
+              </Menu>
+            </div>
+          </Toolbar>
+        </AppBar>
+        <Drawer
+          className={classes.drawer}
+          variant="permanent"
+          classes={{
+            paper: classes.drawerPaper
+          }}
+          anchor="left"
+        >
+          <div className={classes.toolbar} />
+          <Divider />
+          <List>
+            {["Home", "Create post"].map((text, index) => (
+              <ListItem button key={text} onClick={() => handlePageOrder(text)}>
+                <ListItemIcon>
+                  {index % 2 === 0 ? (
+                    <HomeIcon className={classes.icon} color="primary" />
+                  ) : (
+                    <MailIcon className={classes.icon} color="primary" />
+                  )}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItem>
+            ))}
+          </List>
+          <Divider />
+          <List>
+            {["Published"].map((text, index) => (
+              <ListItem button key={text} onClick={() => handlePageOrder(text)}>
+                <ListItemIcon>
+                  {index % 2 === 0 ? (
+                    <InboxIcon className={classes.icon} color="primary" />
+                  ) : (
+                    <MailIcon />
+                  )}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItem>
+            ))}
+          </List>
+        </Drawer>
+        <main className={classes.content}>
+          <div className={classes.toolbar} />
+
+          {home && props.updatePageShuffler ? (
+            <>
+              <ContentDecider
+                changeTarget={props.changeContent}
+                doDeleteStepsHandler={props.onDoDeleteChange}
               />
-            ) : null}
-          </>
-        ) : (
-          <>
-            {home ? (
-              <div>
-                <Editor
-                  pathSelector={props.pathIdentifier}
-                  statusButon={props.statusChekButonIn}
-                  dataInnerComponent={props.dataHandlerFromProp}
-                  stylesChanger={stylesMain}
-                  placeholder={"write your heart hear"}
-                  Update={"update"}
-                  cancelSelection={props.cancelbtnHolder}
+              {props.deleteState ? (
+                <ErrCompo
+                  statusVal={true}
+                  errorwarn={"success"}
+                  message={"successfully deleted . ."}
                 />
-              </div>
-            ) : null}
-          </>
-        )}
+              ) : null}
+            </>
+          ) : (
+            <>
+              {home ? (
+                <div>
+                  <Editor
+                    pathSelector={props.pathIdentifier}
+                    statusButon={props.statusChekButonIn}
+                    dataInnerComponent={props.dataHandlerFromProp}
+                    stylesChanger={stylesMain}
+                    placeholder={"write your heart hear"}
+                    Update={"update"}
+                    cancelSelection={props.cancelbtnHolder}
+                  />
+                </div>
+              ) : null}
+            </>
+          )}
 
-        {addBlog ? (
-          <div>
-            <Editor
-              statusButon={props.statusChekButonIn}
-              stylesChanger={stylesMain}
-              placeholder={"write your heart hear"}
-            />
-          </div>
-        ) : null}
+          {addBlog ? (
+            <div>
+              <Editor
+                statusButon={props.statusChekButonIn}
+                stylesChanger={stylesMain}
+                placeholder={"write your heart hear"}
+              />
+            </div>
+          ) : null}
 
-        {addUpdate ? <SummaryCardCollection /> : null}
-      </main>
-    </div>
+          {addUpdate ? <SummaryCardCollection /> : null}
+        </main>
+      </div>
+    </Container>
   );
 }
 

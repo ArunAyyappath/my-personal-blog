@@ -219,21 +219,30 @@ class CustomSignUp extends React.Component {
               flag={this.state.inputStatus}
             />
 
-            <div style={{ textAlign: "center" }}>
+            <Container component="main" maxWidth="xs">
               <button
-                className="submit m-4"
+                className="submit"
                 type="submit"
                 onClick={this.onclickHandle}
               >
                 SignUp
               </button>
-            </div>
-            <div className="home">
-              <a href="/">Home</a>
-            </div>
-            <div className="accOn">
-              <a href="/signIn">Already have an account ? Sign In</a>
-            </div>
+            </Container>
+
+            <Container component="main" maxWidth="xs">
+              <Typography
+                variant="body2"
+                color="textSecondary"
+                align="left"
+                style={{ float: "left" }}
+              >
+                <a href="/"> Home </a>
+              </Typography>
+
+              <Typography variant="body2" color="textSecondary" align="right">
+                <a href="/signIn">Already have an account ? Sign In</a>
+              </Typography>
+            </Container>
 
             <ErrCompo
               statusVal={this.state.statusInSignUp}
