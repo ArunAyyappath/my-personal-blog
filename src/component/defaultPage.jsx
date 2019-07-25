@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "../css/DefaultStyle.css";
 import SummaryCardCollection from "./publishCardCompo";
-import Logo from "../images/logoB.png";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
