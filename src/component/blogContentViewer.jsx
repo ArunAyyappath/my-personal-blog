@@ -323,7 +323,7 @@ class ContentDecider extends Component {
           : null}
 
         {this.state.loader ? (
-          <div style={{ position: "absolute", right: "1012px", top: "475px" }}>
+          <div style={{ position: "absolute", right: "930px", top: "475px" }}>
             <Preloader />
           </div>
         ) : null}

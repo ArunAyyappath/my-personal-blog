@@ -17,8 +17,8 @@ class ReadViewer extends Component {
         <div id="mainParent">
           <div style={{ textAlign: "left" }}>
             <button
-              className={"btn btn-sm m-2"}
-              style={{ backgroundColor: "#007bff", color: "#fff" }}
+              className={"btn btn m-2"}
+              style={{ backgroundColor: "rgb(34, 131, 199)", color: "#fff" }}
               onClick={this.props.onBackClick}
             >
               Back
@@ -39,8 +39,9 @@ class ReadViewer extends Component {
                 textAlign: "left",
                 padding: "30px",
                 wordBreak: "break-word",
-                height: "500px",
-                overflowX: "scroll"
+                height: "auto",
+                overflowX: "scroll",
+                fontSize: "22px"
               }}
             >
               <div ref={this.bodyRef} />

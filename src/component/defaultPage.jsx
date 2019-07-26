@@ -74,12 +74,6 @@ function NavBarComponent(props) {
 }
 
 class DefaultPage extends Component {
-  //   <button className="btnDefault hvr-radial-in">
-  //   <a href="/signIn" key="signIn" style={{ color: "#fff" }}>
-  //     Sign In
-  //   </a>
-  // </button>
-
   render() {
     return (
       <>

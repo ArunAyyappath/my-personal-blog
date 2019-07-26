@@ -77,7 +77,7 @@ exports[`<ContentDecider/> renders correctly 1`] = `
     style={
       Object {
         "position": "absolute",
-        "right": "1012px",
+        "right": "930px",
         "top": "475px",
       }
     }
