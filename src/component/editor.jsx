@@ -231,7 +231,7 @@ Editor.modules = {
     [{ size: [] }],
     ["bold", "italic", "underline", "strike", "blockquote"],
     [{ indent: "-1" }, { indent: "+1" }],
-    ["link"]
+    ["link", "code"]
   ],
   clipboard: {
     matchVisual: false
@@ -248,5 +248,6 @@ Editor.formats = [
   "strike",
   "blockquote",
   "indent",
-  "link"
+  "link",
+  "code"
 ];

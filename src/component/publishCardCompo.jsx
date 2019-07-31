@@ -4,7 +4,7 @@ import "@firebase/firestore";
 import "firebase/firebase-database";
 import SummaryCardCompo from "./summaryCard";
 import ReadViewer from "./readerView";
-import img from "../images/blog1N.jpg";
+import img from "../images/blog2N.jpg";
 let changeHandlerData = [];
 let DataDerivedOut = [];
 

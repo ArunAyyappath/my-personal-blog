@@ -1,14 +1,13 @@
 import React, { Component } from "react";
-import "../css/DefaultStyle.css";
-import SummaryCardCollection from "./publishCardCompo";
+import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
 import inst from "../images/instagram.jpg";
 import git from "../images/github.jpg";
 import twt from "../images/twitter.jpg";
 import Container from "@material-ui/core/Container";
+import "../css/detailViewer.css";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -37,20 +36,10 @@ function NavBarComponent(props) {
           {props.signIn ? (
             <>
               <Container maxWidth="xl">
-                <Typography
-                  variant="body2"
-                  color="inherit"
-                  align="left"
-                  style={{ float: "left" }}
-                >
-                  <a href="/about" className={"signInner"}>
-                    About
-                  </a>
-                </Typography>
-                <Typography variant="h6" color="inherit" align="right">
+                <Typography variant="h6" color="inherit" align="left">
                   <button className={"signContainer"}>
-                    <a href="/signIn" className={"signInner"}>
-                      sign in
+                    <a href="/" className={"signInner"}>
+                      Blog
                     </a>
                   </button>
                 </Typography>
@@ -83,7 +72,8 @@ function NavBarComponent(props) {
   );
 }
 
-class DefaultPage extends Component {
+class DetailViewer extends Component {
+  state = {};
   render() {
     return (
       <>
@@ -92,16 +82,46 @@ class DefaultPage extends Component {
 
           <Container
             component="main"
-            maxWidth="xl"
+            maxWidth="md"
             style={{
               backgroundColor: "#fff",
               overflow: "scroll",
               height: "90vh",
               marginBottom: "5px",
-              paddingBottom: "14px"
+              paddingBottom: "14px",
+              marginTop: "40px"
             }}
           >
-            <SummaryCardCollection />
+            <Typography
+              className={"header"}
+              variant="h3"
+              color="inherit"
+              align="center"
+            >
+              About
+            </Typography>
+            <Typography
+              className={"footer"}
+              variant="body2"
+              color="inherit"
+              align="left"
+            >
+              I'm a Software Engineer by profession, this is my personal blog.I
+              write about technology, coding and I like to travel across the
+              world. I started my professional career at
+              <a href="https://appscook.com/"> Appscook Technologies</a>. A day
+              dreamer, optimistic. I write here so that I can make notes, share,
+              discuss the things I find interesting in life.
+            </Typography>
+            <Typography
+              className={"footer"}
+              style={{ marginTop: "15px" }}
+              variant="body2"
+              color="inherit"
+              align="left"
+            >
+              If you want to say hi, mail me at arunayyappath(@)gmail.com
+            </Typography>
           </Container>
         </Typography>
         <NavBarComponent />
@@ -110,4 +130,4 @@ class DefaultPage extends Component {
   }
 }
 
-export default DefaultPage;
+export default DetailViewer;
