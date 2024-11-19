@@ -7,7 +7,7 @@
     "@material-ui/icons": "^4.2.1",
     "@material-ui/lab": "^4.0.0-alpha.18",
     "bootstrap": "^4.1.1",
-    "firebase": "^6.2.3",
+    "firebase": "^10.9.0",
     "notistack": "^0.8.7",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
